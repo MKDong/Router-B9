@@ -1,11 +1,11 @@
 import React,{useState} from 'react'
 
 function Products(props) {
-    console.log(props);
+    // console.log(props);
    
   
   return (
-    <div>
+    <div >
         <div>{props.image.data.map(item => {
             return(
                 <img 
@@ -13,9 +13,7 @@ function Products(props) {
                 />
                 )
             })}</div>
-            <div 
-                
-            >{props.name}</div>
+            <div>{props.name}</div>
             <div>{props.price}</div>
             {/* <div>{props.slug}</div> */}
     </div>

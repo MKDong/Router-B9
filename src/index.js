@@ -13,11 +13,15 @@ import DetailProduct from './Components/Views/DetailProduct';
 
 const router = createBrowserRouter([
   {
-    path: "/listProduct",
+    path: "/",
     element: <App/>,
   },
   {
-    path:"/listProduct/:title",
+    path: "/listProduct",
+    element: <ListProduct/>,
+  },
+  {
+    path:"/listProduct/:slug",
     element:<DetailProduct/>
   }
 ]);

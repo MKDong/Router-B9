@@ -2,16 +2,15 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Products from './Products'
 import { Link, useParams } from 'react-router-dom'
+import DetailProduct from './DetailProduct'
 
 function ListProduct() {
-    const param=useParams()
-    const [params,setParams]=useState(param)
     const [post, setPost] = useState([])
     const getProduct = () => {
         return axios.get('https://backoffice.nodemy.vn/api/products?populate=*')
         .then(res => {
             setPost(res.data.data)
-            console.log(post);
+            // console.log(post);
         })
         
     }
@@ -19,16 +18,23 @@ function ListProduct() {
     useEffect(() => {
         getProduct()      
     }, [])
+
+    const handleDetail = (item) => {
+        const newDetail = {item}
+        console.log(newDetail);
+    }
+
+    
   return (
     <div>
         {post.map(item => {
-            console.log(item.attributes.slug);
+            // console.log(item.attributes.slug);
 
              
             return(
                 
-                <>
-                <Link to={`${item.attributes.slug}`}>
+                <div key = {item.id}>
+                <Link  to={`${item.attributes.slug}`} onClick={() => {handleDetail(item)}} >
                     <Products
                         // products = {item}
                         id={item.id}
@@ -39,8 +45,12 @@ function ListProduct() {
                     />
 
                 </Link>
+
+                <DetailProduct
+                    
+                />
                   
-                </>
+                </div>
                 )
             
         })}
