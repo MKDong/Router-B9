@@ -19,10 +19,10 @@ function ListProduct() {
         getProduct()      
     }, [])
 
-    const handleDetail = (item) => {
-        const newDetail = {item}
-        console.log(newDetail);
-    }
+    // const handleDetail = (item) => {
+    //     const newDetail = {item}
+    //     console.log(newDetail);
+    // }
 
     
   return (
@@ -34,7 +34,7 @@ function ListProduct() {
             return(
                 
                 <div key = {item.id}>
-                <Link  to={`${item.attributes.slug}`} onClick={() => {handleDetail(item)}} >
+                <Link  to={`${item.attributes.slug}`}  >
                     <Products
                         // products = {item}
                         id={item.id}

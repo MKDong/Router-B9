@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 
 
 function DetailProduct() {
-  const { slug  } = useParams(); 
+  const {slug}   = useParams(null); 
   // console.log(slug ); 
 
  
@@ -35,14 +35,14 @@ function DetailProduct() {
             {itemProduct.attributes.image.data.map((item) => {
               return(
                 <div key = {item.id}>
-                  <img src={`https://backoffice.nodemy.vn${item.attributes.formats.thumbnail.url}`}  />
+                  <img src={`https://backoffice.nodemy.vn${item.attributes.url}`}  />
 
                 </div>
               )
             })}
           </div>
           <div>{itemProduct.attributes.name}</div>
-          <div>{itemProduct.attributes.price}</div>
+          <div>{Number(itemProduct.attributes.price).toLocaleString('it-IT', {style : 'currency', currency : 'VND'})}</div>
         </>
       }</div>
 
